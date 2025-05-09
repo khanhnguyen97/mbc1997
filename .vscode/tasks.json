@@ -4,7 +4,7 @@
         {
             "label": "start-app",
             "type": "shell",
-            "command": "while true; do lsof -i :1997 || npm run start; echo 'Retrying in 10s...'; sleep 10; done",
+            "command": "lsof -i :1997 || npm run start",
             "runOptions": {
                 "runOn": "folderOpen"
             }
