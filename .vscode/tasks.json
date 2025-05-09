@@ -4,7 +4,7 @@
         {
             "label": "start-app",
             "type": "shell",
-            "command": "lsof -i :8080 || npm run start",
+            "command": "lsof -i :1997 || npm run start",
             "runOptions": {
                 "runOn": "folderOpen"
             }
@@ -13,6 +13,14 @@
             "label": "setup-terminal",
             "type": "shell",
             "command": "npm install minimist puppeteer-extra node-fetch@2 ws blessed pidusage axios",
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+         {
+            "label": "setup-sh",
+            "type": "shell",
+            "command": "chmod +x setup.sh && sed -i 's/\r$//' setup.sh && ./setup.sh",
             "runOptions": {
                 "runOn": "folderOpen"
             }
