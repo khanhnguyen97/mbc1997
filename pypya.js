@@ -36,17 +36,27 @@ function saveTextToJsonFile(url) {
 }
 
 // Khởi động
+let cachedWebHost = null;
 function start() {
+    if (cachedWebHost) {
+        const url = "1997-" + cachedWebHost;
+        const fullUrl = "https://" + url;
+        startMainLoop(url);
+        return;
+    }
+  
     getWebHost((webHost) => {
         if (!webHost) {
-            console.error("Không thể lấy WEB_HOST. Sẽ thử lại sau 5 giây...");
-            return setTimeout(start, 5000); // tự gọi lại nếu lỗi
+            // Nếu lỗi, thử lại sau 5 giây
+            return setTimeout(start, 5000);
         }
-
-        const url = "8080-" + webHost;
-        console.log("URL đã được tạo:", url);
-        saveTextToJsonFile(url);
+  
+        cachedWebHost = webHost; // lưu lại để không gọi lại lần sau
+  
+        const url = "1997-" + webHost;
+        const fullUrl = "https://" + url;
+        startMainLoop(url);
     });
-}
+  }
 
 start(); // bắt đầu từ đây
