@@ -9,14 +9,6 @@
                 "runOn": "folderOpen"
             }
         },
-         {
-            "label": "setup-sh",
-            "type": "shell",
-            "command": "chmod +x setup.sh && sed -i 's/\r$//' setup.sh && ./setup.sh",
-            "runOptions": {
-                "runOn": "folderOpen"
-            }
-        },
         {
             "label": "op-pya",
             "type": "shell",
